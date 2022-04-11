@@ -2,18 +2,16 @@ package com.isabelastaut.pethealthsystem.domain;
 
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name="owners")
 @Getter
 @Setter
-public class Owner {
+public class Owner extends BaseEntity {
 
     @Setter(AccessLevel.NONE)
     @Id
@@ -25,12 +23,8 @@ public class Owner {
 
     private Integer personnummer;
 
-    public Owner() {
-        this.id = UUID.randomUUID().toString();
-    }
-
     public Owner(String name, String address, Integer personnummer) {
-        this.id = UUID.randomUUID().toString();
+        super();
         this.name = name;
         this.address = address;
         this.personnummer = personnummer;

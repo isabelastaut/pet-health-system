@@ -17,7 +17,6 @@ public class OwnerController {
     @Autowired
     private OwnerService service;
 
-
     @PostMapping
     public ResponseEntity<Owner> create(@RequestBody Owner owner, HttpServletResponse response) {
         Owner newOwner = service.create(owner);

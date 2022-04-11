@@ -17,22 +17,19 @@ import java.util.UUID;
 @Table(name="vaccination_cards")
 @Getter
 @Setter
-public class VaccinationCard {
+public class VaccinationCard extends BaseEntity {
 
     @Setter(AccessLevel.NONE)
     @Id
     private String id;
 
-    //@Column(name="pet_name")
     private String petName;
 
     private Species species;
 
-    //@Column(name="microchip_no")
     private Integer microchipNo;
 
-    //@Column(name="birth_date")
-    private Date birthDate; // check Date from SQL package
+    private Date birthDate;
 
     private Sex sex;
 
@@ -44,12 +41,8 @@ public class VaccinationCard {
     @JoinColumn(name="owner_id")
     private Owner owner;
 
-    public VaccinationCard() {
-        this.id = UUID.randomUUID().toString();
-    }
-
     public VaccinationCard(String petName, Species species, Integer microchipNo, Date birthDate, Sex sex, DogBreed breed, String color, Owner owner) {
-        this.id = UUID.randomUUID().toString();
+        super();
         this.petName = petName;
         this.species = species;
         this.microchipNo = microchipNo;
