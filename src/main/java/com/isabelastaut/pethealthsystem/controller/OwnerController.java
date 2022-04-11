@@ -18,13 +18,13 @@ public class OwnerController {
     private OwnerService service;
 
 
-    @PostMapping("/newOwner")
+    @PostMapping
     public ResponseEntity<Owner> create(@RequestBody Owner owner, HttpServletResponse response) {
         Owner newOwner = service.create(owner);
         return ResponseEntity.status(HttpStatus.CREATED).body(newOwner);
     }
 
-    @GetMapping("/owners")
+    @GetMapping
     public ResponseEntity<List<Owner>> findAll() {
         List<Owner> owners = service.findAll();
         return ResponseEntity.ok(owners);
@@ -44,7 +44,7 @@ public class OwnerController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteOwner(@PathVariable String id) {
+    public void delete(@PathVariable String id) {
         service.deleteById(id);
     }
 }

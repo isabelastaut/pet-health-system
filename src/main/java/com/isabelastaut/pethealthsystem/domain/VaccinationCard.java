@@ -23,15 +23,15 @@ public class VaccinationCard {
     @Id
     private String id;
 
-    @Column(name="pet-name")
+    //@Column(name="pet_name")
     private String petName;
 
     private Species species;
 
-    @Column(name="microchip-no")
+    //@Column(name="microchip_no")
     private Integer microchipNo;
 
-    @Column(name="birth-date")
+    //@Column(name="birth_date")
     private Date birthDate; // check Date from SQL package
 
     private Sex sex;
@@ -41,7 +41,7 @@ public class VaccinationCard {
     private String color;
 
     @ManyToOne
-    @JoinColumn(name="OwnerID")
+    @JoinColumn(name="owner_id")
     private Owner owner;
 
     public VaccinationCard() {
