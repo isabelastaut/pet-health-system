@@ -59,7 +59,6 @@ class OwnerServiceTest {
         assertThat(fetchedOwner).isEqualTo(dummyOwner);
     }
 
-    /*
     @Test
     void updateTest() {
         Owner dummyOwner = new Owner("Bela", "dummy address", 123456789);
@@ -67,10 +66,11 @@ class OwnerServiceTest {
         Owner updatedOwner = new Owner("Isabela", "dummy address", 123456789);
 
         when(repository.findById(ownerId)).thenReturn(Optional.of(dummyOwner));
+        when(repository.save(any(Owner.class))).thenReturn(updatedOwner);
 
-
+        Owner savedOwner = service.update(ownerId, updatedOwner);
+        assertThat(savedOwner).isEqualTo(updatedOwner);
     }
-     */
 
     @Test
     void deleteByIdTest() {
